@@ -1,0 +1,33 @@
+{
+  "name": "budget-app",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "start:dev": "nodemon --inspect app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/filipemego/budget-app.git"
+  },
+  "keywords": [
+    "budget",
+    "filipemego",
+    "app"
+  ],
+  "author": "Filipe Gonçalves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/filipemego/budget-app/issues"
+  },
+  "homepage": "https://github.com/filipemego/budget-app#readme",
+  "dependencies": {
+    "koa": "^2.4.1",
+    "koa-router": "^7.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.6"
+  }
+}

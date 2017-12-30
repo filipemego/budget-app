@@ -1,0 +1,17 @@
+version: "3"
+services:
+  budget-app:
+    build: .
+    image: filipemego/budget-app
+    env_file: .env
+    user: node
+    volumes:
+      - ./app:/home/node/budget-app
+      - /home/node/budget-app/node_modules
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    command:
+      - /bin/ash
+      - -c
+      - npm run start:dev
