@@ -1,45 +1,20 @@
 const KoaRouter = require('koa-router');
+const expensesController = require('../../../controllers/expensesController');
 
 const expensesRouter = new KoaRouter({
   prefix: '/expenses',
 });
 
 module.exports = (router) => {
-  expensesRouter.get('/', (context, next) => {
-    context.body = [
-      {
-        id: 1,
-        created: '2017-10-11',
-        description: 'Nubank',
-        amount: 1445.65,
-        categories: [1, 2, 7],
-      },
-      {
-        id: 2,
-        created: '2017-10-11',
-        description: 'Nubank',
-        amount: 1445.65,
-        categories: [1, 2, 7],
-      }
-    ];
-  });
+  expensesRouter.get('/', expensesController.getAll);
 
-  expensesRouter.get('/:id', (context, next) => {
-    context.body = {
-      id: 2,
-      created: '2017-10-11',
-      description: 'Nubank',
-      amount: 1445.65,
-      categories: [1, 2, 7],
-    }
-  });
+  expensesRouter.get('/:id', expensesController.get);
 
-  expensesRouter.post('/', (context, next) => {
-  });
+  expensesRouter.post('/', expensesController.create);
 
-  expensesRouter.patch('/:id', () => process.stdout.write('Update'));
+  expensesRouter.patch('/:id', expensesController.patch);
 
-  expensesRouter.put('/:id', () => process.stdout.write('Update or create'));
+  expensesRouter.put('/:id', expensesController.put);
 
   router.use(expensesRouter.routes());
 };
