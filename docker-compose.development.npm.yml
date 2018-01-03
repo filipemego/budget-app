@@ -1,0 +1,11 @@
+version: "3"
+services:
+  budget-app-npm:
+    image: filipemego/budget-app
+    user: node
+    volumes:
+      - ./app:/home/node/budget-app
+    command:
+      - /bin/ash
+      - -c
+      - npm install

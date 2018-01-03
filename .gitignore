@@ -57,3 +57,8 @@ typings/
 # dotenv environment variables file
 .env
 
+# VSCode configuration
+.vscode
+
+# Docker MySQL
+.mysql

@@ -1,0 +1,32 @@
+version: "3"
+services:
+  budget-app:
+    build: .
+    image: filipemego/budget-app
+    env_file: .env
+    tty: true
+    user: node
+    volumes:
+      - ./app:/home/node/budget-app
+      - /home/node/budget-app/node_modules
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    command:
+      - /bin/ash
+      - -c
+      - npm run start:dev
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: budget-app
+      MYSQL_USER: budget-app
+      MYSQL_PASSWORD: 12346
+    volumes:
+      - ./.mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    
