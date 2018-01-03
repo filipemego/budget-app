@@ -4,6 +4,7 @@ services:
     build: .
     image: filipemego/budget-app
     env_file: .env
+    tty: true
     user: node
     volumes:
       - ./app:/home/node/budget-app
